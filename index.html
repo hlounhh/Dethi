@@ -1,276 +1,397 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Tổng hợp đề thi toán vào lớp 10 — Tải ảnh đề thi, xem đáp án và luyện tập hiệu quả.">
-  <title>Tổng hợp đề thi Toán vào 10</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Tổng hợp đề thi toán vào lớp 10 — Tải ảnh đề thi, xem đáp án và luyện tập hiệu quả.">
+<title>Tổng hợp đề thi Toán vào 10</title>
 
-  <!-- Preconnect -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="dns-prefetch" href="https://api.jsonbin.io">
-  <link rel="dns-prefetch" href="https://api.imgbb.com">
+<!-- Preconnect -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://api.jsonbin.io">
+<link rel="dns-prefetch" href="https://api.imgbb.com">
 
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="style.css">
+<!-- Stylesheet -->
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- ═══════════════ STICKY HEADER ═══════════════ -->
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="logo" href="#" aria-label="Trang chủ">
-        <div class="logo-icon">📐</div>
-        <div class="logo-text">
-          Đề Toán Vào 10
-          <span>Tổng hợp đề thi</span>
-        </div>
-      </a>
-      <div class="header-spacer"></div>
-      <div class="auth-area">
-        <!-- Guest -->
-        <button id="btn-login" class="btn-login" aria-label="Đăng nhập">
-          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/>
+<!-- ═══════════════ STICKY HEADER ═══════════════ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="#" aria-label="Trang chủ">
+      <div class="logo-icon">
+        <!-- SVG: Thước kẻ / ruler icon thay cho 📐 -->
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M2 2l20 20M2 22L22 2"/>
+          <path d="M7 7l2 2M11 7l2 2M7 11l2 2M15 7l2 2M11 11l2 2M7 15l2 2"/>
+          <rect x="1" y="8" width="22" height="8" rx="2" fill="none"/>
+        </svg>
+      </div>
+      <div class="logo-text">
+        Đề Toán Vào 10
+        <span>Tổng hợp đề thi</span>
+      </div>
+    </a>
+
+    <div class="header-spacer"></div>
+
+    <div class="auth-area">
+      <!-- Guest -->
+      <button id="btn-login" class="btn-login" aria-label="Đăng nhập">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/>
+        </svg>
+        Đăng nhập
+      </button>
+
+      <!-- User Chip -->
+      <div id="user-chip" style="display:none;position:relative;" title="Tài khoản">
+        <div class="user-chip-inner" id="user-chip-inner" style="display:flex;align-items:center;cursor:pointer;" aria-haspopup="true">
+          <img id="nav-avatar" src="https://i.ibb.co/6PygdDq/default-avatar.png" alt="Avatar"
+            style="width:28px;height:28px;border-radius:50%;margin-right:8px;object-fit:cover;">
+          <span id="user-name-display" class="user-name" style="margin-right:5px;font-weight:700">minhdung</span>
+          <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="color:var(--gray-500);margin-top:2px" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
           </svg>
-          Đăng nhập
-        </button>
-        <!-- User Chip -->
-        <div id="user-chip" style="display:none;position:relative;" title="Tài khoản">
-          <div class="user-chip-inner" id="user-chip-inner" style="display:flex;align-items:center;cursor:pointer;" aria-haspopup="true">
-            <img id="nav-avatar" src="https://i.ibb.co/6PygdDq/default-avatar.png" alt="Avatar"
-                 style="width:28px;height:28px;border-radius:50%;margin-right:8px;object-fit:cover;">
-            <span id="user-name-display" class="user-name" style="margin-right:5px;font-weight:700">minhdung</span>
-            <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="color:var(--gray-500);margin-top:2px">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </div>
+        <div id="user-menu-dropdown" style="display:none;position:absolute;top:calc(100% + 10px);right:0;background:white;padding:8px 0;border-radius:12px;box-shadow:0 10px 25px rgba(0,0,0,.1);border:1px solid var(--gray-200);z-index:100;min-width:180px;">
+          <div id="menu-view-profile" style="padding:10px 15px;display:flex;align-items:center;gap:8px;cursor:pointer;font-size:14px;color:var(--gray-700);font-weight:600;">
+            <!-- SVG: User / profile icon -->
+            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
             </svg>
+            Xem hồ sơ
           </div>
-          <div id="user-menu-dropdown" style="display:none;position:absolute;top:calc(100% + 10px);right:0;background:white;padding:8px 0;border-radius:12px;box-shadow:0 10px 25px rgba(0,0,0,.1);border:1px solid var(--gray-200);z-index:100;min-width:180px;">
-            <div id="menu-view-profile" style="padding:10px 15px;display:flex;align-items:center;cursor:pointer;font-size:14px;color:var(--gray-700);font-weight:600;">Xem hồ sơ</div>
-            <div style="height:1px;background:var(--gray-100);margin:4px 0;"></div>
-            <div id="menu-logout" style="padding:10px 15px;display:flex;align-items:center;cursor:pointer;font-size:14px;color:#dc2626;font-weight:600;">Đăng xuất</div>
+          <div style="height:1px;background:var(--gray-100);margin:4px 0;"></div>
+          <div id="menu-logout" style="padding:10px 15px;display:flex;align-items:center;gap:8px;cursor:pointer;font-size:14px;color:#dc2626;font-weight:600;">
+            <!-- SVG: Logout icon -->
+            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+            </svg>
+            Đăng xuất
           </div>
         </div>
       </div>
     </div>
-  </header>
+  </div>
+</header>
 
-  <!-- ═══════════════ HERO BANNER ═══════════════ -->
-  <section class="hero-banner" aria-label="Ảnh bìa toán học">
-    <img src="hero_banner.png" alt="Sách giáo khoa, compa, máy tính và các ký hiệu toán học" loading="eager"
-         onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=1400&q=80&auto=format&fit=crop';">
-    <div class="hero-overlay">
-      <h1 class="hero-title">Tổng hợp đề thi Toán vào 10</h1>
-      <p class="hero-subtitle">Kho đề thi &amp; đáp án — cập nhật liên tục bởi minhdung 📚</p>
+<!-- ═══════════════ HERO BANNER ═══════════════ -->
+<section class="hero-banner" aria-label="Ảnh bìa toán học">
+  <img src="hero_banner.png" alt="Sách giáo khoa, compa, máy tính và các ký hiệu toán học" loading="eager"
+    onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=1400&q=80&auto=format&fit=crop';">
+  <div class="hero-overlay">
+    <h1 class="hero-title">Tổng hợp đề thi Toán vào 10</h1>
+    <p class="hero-subtitle">
+      Kho đề thi &amp; đáp án — cập nhật liên tục bởi minhdung
+      <!-- SVG: Book stack thay cho 📚 -->
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-left:4px" aria-hidden="true">
+        <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/>
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
+      </svg>
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════ MAIN CONTENT ═══════════════ -->
+<main class="main-content" id="main">
+
+  <!-- Search -->
+  <section class="search-section" aria-label="Tìm kiếm đề thi">
+    <div class="search-wrapper">
+      <input id="search-input" type="search" class="search-input"
+        placeholder="Search đề thi..." autocomplete="off"
+        aria-label="Tìm kiếm đề thi" spellcheck="false">
+      <span class="search-icon" aria-hidden="true">
+        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+      </span>
     </div>
+    <p id="search-info" class="search-result-info" aria-live="polite">0 đề thi đã đăng</p>
   </section>
 
-  <!-- ═══════════════ MAIN CONTENT ═══════════════ -->
-  <main class="main-content" id="main">
+  <!-- Section Header -->
+  <div class="section-header">
+    <h2 class="section-title">Danh sách đề thi</h2>
+  </div>
 
-    <!-- Search -->
-    <section class="search-section" aria-label="Tìm kiếm đề thi">
-      <div class="search-wrapper">
-        <input id="search-input" type="search" class="search-input"
-               placeholder="🔍  Search đề thi..." autocomplete="off"
-               aria-label="Tìm kiếm đề thi" spellcheck="false">
-        <span class="search-icon" aria-hidden="true">
-          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+  <!-- Posts Grid -->
+  <div id="posts-grid" class="posts-grid" role="list" aria-label="Danh sách đề thi">
+    <!-- Rendered by index.js -->
+  </div>
+
+  <!-- Pagination -->
+  <div id="pagination-controls" class="pagination-controls" aria-label="Phân trang" style="display:none;"></div>
+</main>
+
+<!-- FAB -->
+<button id="fab-add" class="fab-add" aria-label="Đăng đề thi mới">
+  <!-- SVG: Plus icon thay cho + -->
+  <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+    <path d="M12 5v14M5 12h14"/>
+  </svg>
+</button>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="site-footer">
+  <p>© 2025 Đề Toán Vào 10 · Được tạo bởi <a href="profile.html?user=minhdung">minhdung</a></p>
+</footer>
+
+<!-- ═══════════════ AUTH MODAL ═══════════════ -->
+<div id="login-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Đăng nhập / Đăng ký">
+  <div class="modal-box" style="max-width:420px">
+    <button class="modal-close" data-close="login-modal" aria-label="Đóng">
+      <!-- SVG: X close icon thay cho × -->
+      <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+        <path d="M18 6L6 18M6 6l12 12"/>
+      </svg>
+    </button>
+    <div class="modal-title">
+      <div class="modal-title-icon">
+        <!-- SVG: Lock icon thay cho 🔐 -->
+        <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+          <path d="M7 11V7a5 5 0 0110 0v4"/>
+        </svg>
+      </div>
+      <span id="auth-modal-title">Đăng nhập</span>
+    </div>
+    <form id="login-form" autocomplete="off" novalidate>
+      <div style="margin-bottom:16px">
+        <label class="form-label" for="login-username">Tên đăng nhập</label>
+        <input id="login-username" type="text" class="form-input"
+          placeholder="Nhập tên đăng nhập..." required autocomplete="username">
+      </div>
+      <div style="margin-bottom:16px">
+        <label class="form-label" for="login-password">Mật khẩu</label>
+        <input id="login-password" type="password" class="form-input"
+          placeholder="Nhập mật khẩu..." required autocomplete="current-password">
+      </div>
+      <div id="login-error" class="form-error"></div>
+      <button id="auth-submit-btn" type="submit" class="btn-primary" style="margin-top:4px">Đăng nhập</button>
+    </form>
+    <p style="text-align:center;font-size:14px;color:var(--gray-500);margin-top:16px">
+      <span id="auth-switch-text">Chưa có tài khoản?</span>
+      <a href="#" id="auth-toggle-btn"
+        style="color:var(--orange-600);font-weight:700;text-decoration:none;margin-left:4px">Đăng ký ngay</a>
+    </p>
+  </div>
+</div>
+
+<!-- ═══════════════ POST COMPOSE MODAL ═══════════════ -->
+<div id="post-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Đăng đề thi mới">
+  <div class="modal-box wide post-modal-box">
+    <button class="modal-close" data-close="post-modal" aria-label="Đóng">
+      <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+        <path d="M18 6L6 18M6 6l12 12"/>
+      </svg>
+    </button>
+    <div class="modal-title">
+      <div class="modal-title-icon" id="post-modal-icon">
+        <!-- SVG: Pencil / edit icon thay cho ✏️ -->
+        <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/>
+          <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/>
+        </svg>
+      </div>
+      <span id="post-modal-title-text">Đăng đề thi mới</span>
+    </div>
+
+    <div class="form-scroll">
+      <!-- Mode Toggle -->
+      <div class="post-mode-toggle">
+        <button class="mode-tab active" data-mode="image" id="mode-tab-image">
+          <!-- SVG: Camera thay cho 📷 -->
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:5px" aria-hidden="true">
+            <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/>
+            <circle cx="12" cy="13" r="4"/>
           </svg>
-        </span>
+          Đăng bằng ảnh
+        </button>
+        <button class="mode-tab" data-mode="file" id="mode-tab-file">
+          <!-- SVG: File doc thay cho 📄 -->
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:5px" aria-hidden="true">
+            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+            <polyline points="10 9 9 9 8 9"/>
+          </svg>
+          Đăng bằng file
+        </button>
       </div>
-      <p id="search-info" class="search-result-info" aria-live="polite">0 đề thi đã đăng</p>
-    </section>
 
-    <!-- Section Header -->
-    <div class="section-header">
-      <h2 class="section-title">Danh sách đề thi</h2>
-    </div>
-
-
-    <!-- Posts Grid -->
-    <div id="posts-grid" class="posts-grid" role="list" aria-label="Danh sách đề thi">
-      <!-- Rendered by index.js -->
-    </div>
-
-    <!-- Pagination -->
-    <div id="pagination-controls" class="pagination-controls" aria-label="Phân trang" style="display:none;"></div>
-
-  </main>
-
-  <!-- FAB -->
-  <button id="fab-add" class="fab-add" aria-label="Đăng đề thi mới">+</button>
-
-  <!-- ═══════════════ FOOTER ═══════════════ -->
-  <footer class="site-footer">
-    <p>© 2025 Đề Toán Vào 10 · Được tạo bởi <a href="profile.html?user=minhdung">minhdung</a></p>
-  </footer>
-
-  <!-- ═══════════════ AUTH MODAL ═══════════════ -->
-  <div id="login-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Đăng nhập / Đăng ký">
-    <div class="modal-box" style="max-width:420px">
-      <button class="modal-close" data-close="login-modal" aria-label="Đóng">×</button>
-      <div class="modal-title">
-        <div class="modal-title-icon">🔐</div>
-        <span id="auth-modal-title">Đăng nhập</span>
+      <!-- Title -->
+      <div class="post-form-section" style="margin-bottom:18px;">
+        <div class="post-form-label">
+          <!-- SVG: Pencil thay cho ✏️ -->
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
+          </svg>
+          Tiêu đề đề thi
+        </div>
+        <input id="post-title" type="text" class="post-form-input"
+          placeholder="Ví dụ: Đề thi Toán 2024" maxlength="120" required style="margin-bottom:0">
       </div>
-      <form id="login-form" autocomplete="off" novalidate>
-        <div style="margin-bottom:16px">
-          <label class="form-label" for="login-username">Tên đăng nhập</label>
-          <input id="login-username" type="text" class="form-input"
-                 placeholder="Nhập tên đăng nhập..." required autocomplete="username">
-        </div>
-        <div style="margin-bottom:16px">
-          <label class="form-label" for="login-password">Mật khẩu</label>
-          <input id="login-password" type="password" class="form-input"
-                 placeholder="Nhập mật khẩu..." required autocomplete="current-password">
-        </div>
-        <div id="login-error" class="form-error"></div>
-        <button id="auth-submit-btn" type="submit" class="btn-primary" style="margin-top:4px">Đăng nhập</button>
-      </form>
-      <p style="text-align:center;font-size:14px;color:var(--gray-500);margin-top:16px">
-        <span id="auth-switch-text">Chưa có tài khoản?</span>
-        <a href="#" id="auth-toggle-btn"
-           style="color:var(--orange-600);font-weight:700;text-decoration:none;margin-left:4px">Đăng ký ngay</a>
-      </p>
-    </div>
-  </div>
 
-  <!-- ═══════════════ POST COMPOSE MODAL ═══════════════ -->
-  <div id="post-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Đăng đề thi mới">
-    <div class="modal-box wide post-modal-box">
-      <button class="modal-close" data-close="post-modal" aria-label="Đóng">×</button>
-      <div class="modal-title">
-        <div class="modal-title-icon" id="post-modal-icon">✏️</div>
-        <span id="post-modal-title-text">Đăng đề thi mới</span>
-      </div>
-      <div class="form-scroll">
+      <hr class="section-divider">
 
-        <!-- Mode Toggle -->
-        <div class="post-mode-toggle">
-          <button class="mode-tab active" data-mode="image" id="mode-tab-image">📷 Đăng bằng ảnh</button>
-          <button class="mode-tab" data-mode="file" id="mode-tab-file">📄 Đăng bằng file</button>
-        </div>
-
-        <!-- Title -->
-        <div class="post-form-section" style="margin-bottom:18px;">
-          <div class="post-form-label">✏️ Tiêu đề đề thi</div>
-          <input id="post-title" type="text" class="post-form-input"
-                 placeholder="Ví dụ: Đề thi Toán 2024" maxlength="120" required style="margin-bottom:0">
+      <!-- IMAGE mode section -->
+      <div id="image-post-section">
+        <div class="post-form-section">
+          <div class="post-form-label">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+            Ảnh đề thi <span style="color:var(--orange-500)">*</span>
+          </div>
+          <div id="exam-upload-area" class="upload-area" role="button" tabindex="0">
+            <div class="upload-icon">
+              <!-- SVG: Folder open thay cho 📁 -->
+              <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/>
+              </svg>
+            </div>
+            <div class="upload-text"><strong>Nhấn để chọn ảnh</strong> hoặc kéo &amp; thả<br>Trang 1 → Trang 2 → ...</div>
+            <div class="upload-hint">PNG, JPG, WEBP — Chọn nhiều ảnh cùng lúc</div>
+          </div>
+          <input id="exam-file-input" type="file" class="hidden-file" accept="image/*" multiple>
+          <div id="exam-thumb-strip" class="thumb-strip"></div>
         </div>
 
         <hr class="section-divider">
 
-        <!-- IMAGE mode section -->
-        <div id="image-post-section">
-          <div class="post-form-section">
-            <div class="post-form-label">
-              <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+        <div class="post-form-section">
+          <div class="post-form-label">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            Ảnh đáp án <span style="color:var(--gray-400);font-size:11px;font-weight:400">(không bắt buộc)</span>
+          </div>
+          <div id="ans-upload-area" class="upload-area" role="button" tabindex="0">
+            <div class="upload-icon">
+              <!-- SVG: Check circle thay cho ✅ -->
+              <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
               </svg>
-              Ảnh đề thi <span style="color:var(--orange-500)">*</span>
             </div>
-            <div id="exam-upload-area" class="upload-area" role="button" tabindex="0">
-              <div class="upload-icon">📁</div>
-              <div class="upload-text"><strong>Nhấn để chọn ảnh</strong> hoặc kéo &amp; thả<br>Trang 1 → Trang 2 → ...</div>
-              <div class="upload-hint">PNG, JPG, WEBP — Chọn nhiều ảnh cùng lúc</div>
-            </div>
-            <input id="exam-file-input" type="file" class="hidden-file" accept="image/*" multiple>
-            <div id="exam-thumb-strip" class="thumb-strip"></div>
+            <div class="upload-text"><strong>Nhấn để chọn ảnh đáp án</strong> hoặc kéo &amp; thả</div>
+            <div class="upload-hint">PNG, JPG, WEBP</div>
           </div>
+          <input id="ans-file-input" type="file" class="hidden-file" accept="image/*" multiple>
+          <div id="ans-thumb-strip" class="thumb-strip"></div>
+        </div>
+      </div>
 
-          <hr class="section-divider">
-
-          <div class="post-form-section">
-            <div class="post-form-label">
-              <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+      <!-- FILE mode section (hidden by default) -->
+      <div id="file-post-section" style="display:none">
+        <div class="supabase-hint">
+          <!-- SVG: Cloud upload thay cho ☁️ -->
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:4px" aria-hidden="true">
+            <polyline points="16 16 12 12 8 16"/>
+            <line x1="12" y1="12" x2="12" y2="21"/>
+            <path d="M20.39 18.39A5 5 0 0018 9h-1.26A8 8 0 103 16.3"/>
+          </svg>
+          File sẽ được upload lên <strong>Supabase Storage</strong> (cần cấu hình trong <code>core.js</code>).
+          Nếu chưa cấu hình, file sẽ chỉ lưu tạm thời và không hiển thị cho người khác.
+        </div>
+        <div class="post-form-section">
+          <div class="post-form-label">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+            Tệp đính kèm <span style="color:var(--orange-500)">*</span>
+          </div>
+          <div id="doc-upload-area" class="upload-area" role="button" tabindex="0">
+            <div class="upload-icon">
+              <!-- SVG: File doc thay cho 📄 -->
+              <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/>
+                <line x1="16" y1="17" x2="8" y2="17"/>
               </svg>
-              Ảnh đáp án <span style="color:var(--gray-400);font-size:11px;font-weight:400">(không bắt buộc)</span>
             </div>
-            <div id="ans-upload-area" class="upload-area" role="button" tabindex="0">
-              <div class="upload-icon">✅</div>
-              <div class="upload-text"><strong>Nhấn để chọn ảnh đáp án</strong> hoặc kéo &amp; thả</div>
-              <div class="upload-hint">PNG, JPG, WEBP</div>
-            </div>
-            <input id="ans-file-input" type="file" class="hidden-file" accept="image/*" multiple>
-            <div id="ans-thumb-strip" class="thumb-strip"></div>
+            <div class="upload-text"><strong>Nhấn để chọn file</strong> hoặc kéo &amp; thả</div>
+            <div class="upload-hint">PDF, DOC, DOCX — Tối đa 50MB/file (Supabase) / 5MB (không Supabase)</div>
           </div>
+          <input id="doc-file-input" type="file" accept=".pdf,.doc,.docx" multiple>
+          <div id="doc-thumb-strip" class="thumb-strip"></div>
         </div>
+      </div>
 
-        <!-- FILE mode section (hidden by default) -->
-        <div id="file-post-section" style="display:none">
-          <div class="supabase-hint">
-            ☁️ File sẽ được upload lên <strong>Supabase Storage</strong> (cần cấu hình trong <code>core.js</code>).
-            Nếu chưa cấu hình, file sẽ chỉ lưu tạm thời và không hiển thị cho người khác.
-          </div>
-          <div class="post-form-section">
-            <div class="post-form-label">
-              <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-              </svg>
-              Tệp đính kèm <span style="color:var(--orange-500)">*</span>
-            </div>
-            <div id="doc-upload-area" class="upload-area" role="button" tabindex="0">
-              <div class="upload-icon">📄</div>
-              <div class="upload-text"><strong>Nhấn để chọn file</strong> hoặc kéo &amp; thả</div>
-              <div class="upload-hint">PDF, DOC, DOCX — Tối đa 50MB/file (Supabase) / 5MB (không Supabase)</div>
-            </div>
-            <input id="doc-file-input" type="file" accept=".pdf,.doc,.docx" multiple>
-            <div id="doc-thumb-strip" class="thumb-strip"></div>
-          </div>
-        </div>
+      <hr class="section-divider">
 
-        <hr class="section-divider">
-
-        <!-- Submit -->
-        <div style="display:flex;gap:12px;margin-top:20px;">
-          <button type="button" id="btn-cancel-post" class="btn-cancel-confirm" style="display:none;flex:1">Hủy</button>
-          <button type="submit" id="btn-submit-post" class="btn-primary" style="margin-top:0;flex:2">
-            <span id="btn-submit-post-text">🚀 Đăng đề thi</span>
-          </button>
-        </div>
+      <!-- Submit -->
+      <div style="display:flex;gap:12px;margin-top:20px;">
+        <button type="button" id="btn-cancel-post" class="btn-cancel-confirm" style="display:none;flex:1">Hủy</button>
+        <button type="submit" id="btn-submit-post" class="btn-primary" style="margin-top:0;flex:2">
+          <span id="btn-submit-post-text" style="display:flex;align-items:center;justify-content:center;gap:6px">
+            <!-- SVG: Rocket thay cho 🚀 -->
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z"/>
+              <path d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z"/>
+              <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
+            </svg>
+            Đăng đề thi
+          </span>
+        </button>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- ═══════════════ DETAIL VIEW ═══════════════ -->
-  <div id="detail-overlay" class="detail-overlay" role="dialog" aria-modal="true" aria-label="Chi tiết đề thi">
-    <!-- Injected by JS -->
-  </div>
+<!-- ═══════════════ DETAIL VIEW ═══════════════ -->
+<div id="detail-overlay" class="detail-overlay" role="dialog" aria-modal="true" aria-label="Chi tiết đề thi">
+  <!-- Injected by JS -->
+</div>
 
-  <!-- ═══════════════ CONFIRM DELETE MODAL ═══════════════ -->
-  <div id="confirm-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Xác nhận xóa">
-    <div class="modal-box" style="max-width:380px">
-      <div class="modal-title">
-        <div class="modal-title-icon" style="background:linear-gradient(135deg,#ef4444,#b91c1c)">🗑️</div>
-        Xóa bài đăng?
+<!-- ═══════════════ CONFIRM DELETE MODAL ═══════════════ -->
+<div id="confirm-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Xác nhận xóa">
+  <div class="modal-box" style="max-width:380px">
+    <div class="modal-title">
+      <div class="modal-title-icon" style="background:linear-gradient(135deg,#ef4444,#b91c1c)">
+        <!-- SVG: Trash icon thay cho 🗑️ -->
+        <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="3 6 5 6 21 6"/>
+          <path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/>
+          <path d="M10 11v6M14 11v6"/>
+          <path d="M9 6V4a1 1 0 011-1h4a1 1 0 011 1v2"/>
+        </svg>
       </div>
-      <p style="font-size:15px;color:var(--gray-500);margin-bottom:20px;line-height:1.6">
-        Bạn có chắc muốn xóa bài đăng này? Hành động này <strong>không thể hoàn tác</strong>.
-      </p>
-      <div class="confirm-actions">
-        <button id="btn-cancel-delete" class="btn-cancel-confirm">Hủy</button>
-        <button id="btn-confirm-delete" class="btn-confirm-delete">Xóa ngay</button>
-      </div>
+      Xóa bài đăng?
+    </div>
+    <p style="font-size:15px;color:var(--gray-500);margin-bottom:20px;line-height:1.6">
+      Bạn có chắc muốn xóa bài đăng này? Hành động này <strong>không thể hoàn tác</strong>.
+    </p>
+    <div class="confirm-actions">
+      <button id="btn-cancel-delete" class="btn-cancel-confirm">Hủy</button>
+      <button id="btn-confirm-delete" class="btn-confirm-delete">Xóa ngay</button>
     </div>
   </div>
+</div>
 
-  <!-- ═══════════════ LIGHTBOX ═══════════════ -->
-  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Xem ảnh lớn">
-    <button class="lightbox-close" aria-label="Đóng">×</button>
-    <img id="lightbox-img" src="" alt="Ảnh phóng to">
-  </div>
+<!-- ═══════════════ LIGHTBOX ═══════════════ -->
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Xem ảnh lớn">
+  <button class="lightbox-close" aria-label="Đóng">
+    <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+      <path d="M18 6L6 18M6 6l12 12"/>
+    </svg>
+  </button>
+  <img id="lightbox-img" src="" alt="Ảnh phóng to">
+</div>
 
-  <!-- ═══════════════ TOAST ═══════════════ -->
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+<!-- ═══════════════ TOAST ═══════════════ -->
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-  <!-- Scripts -->
-  <script src="core.js"></script>
-  <script src="index.js"></script>
+<!-- Scripts -->
+<script src="core.js"></script>
+<script src="index.js"></script>
 </body>
 </html>
