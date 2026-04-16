@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Trang cá nhân — Tổng hợp đề thi">
+  <title>Trang cá nhân</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Bổ sung thêm css để profile fit toàn màn hình mượt mà nhưng vẫn giống một trang */
+    body { background: var(--gray-50); overflow-x: hidden; }
+    .profile-page-container {
+      max-width: 900px;
+      margin: 20px auto 60px;
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+    }
+    @media (max-width: 900px) {
+        .profile-page-container { margin: 0; border-radius: 0; min-height: 100vh; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html" aria-label="Trang chủ">
+        <div class="logo-icon">📐</div>
+        <div class="logo-text">Đề Toán Vào 10<span>Quay lại trang chủ</span></div>
+      </a>
+      <div class="header-spacer"></div>
+
+      <!-- Auth area -->
+      <div class="auth-area">
+        <button id="btn-login" class="btn-login" aria-label="Đăng nhập">Đăng nhập</button>
+
+        <div id="user-chip" class="user-chip" style="display:none; position:relative;">
+          <div class="user-chip-inner" id="user-chip-inner" style="display:flex; align-items:center; cursor:pointer;">
+            <img id="nav-avatar" src="https://ui-avatars.com/api/?name=User&background=random&color=fff" alt="Avatar" style="width:28px;height:28px;border-radius:50%;margin-right:8px;object-fit:cover;">
+            <span id="user-name-display" class="user-name" style="margin-right:5px;font-weight:700">Tài khoản</span>
+            <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </div>
+          <div id="user-menu-dropdown" style="display:none; position:absolute; top:calc(100% + 10px); right:0; background:white; padding:8px 0; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,0.1); border:1px solid var(--gray-200); z-index:100; min-width:180px;">
+            <div id="menu-view-profile" style="padding:10px 15px; display:flex; align-items:center; cursor:pointer; font-size:14px; color:var(--gray-700); font-weight:600;">Xem hồ sơ</div>
+            <div style="height:1px; background:var(--gray-100); margin:4px 0;"></div>
+            <div id="menu-logout" style="padding:10px 15px; display:flex; align-items:center; cursor:pointer; font-size:14px; color:#dc2626; font-weight:600;">Đăng xuất</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN PROFILE -->
+  <main class="profile-page-container">
+    <div class="profile-header-area" style="position:relative; background:var(--gray-100)">
+      <img id="profile-cover" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200" alt="Cover" style="width:100%; height:250px; object-fit:cover; display:block;">
+      <div style="position:absolute; bottom:-45px; left:30px; border-radius:50%; padding:4px; background:white; display:inline-block; border:1px solid var(--gray-200); box-shadow:var(--shadow-sm)">
+        <img id="profile-avatar" src="https://ui-avatars.com/api/?name=User&background=random" alt="Avatar" style="width:110px; height:110px; border-radius:50%; object-fit:cover; display:block;">
+      </div>
+    </div>
+    
+    <div class="profile-info-section" style="padding: 55px 30px 20px 30px;">
+      <h2 id="profile-display-name" style="margin:0; font-size:26px; font-weight:800; color:var(--gray-800);">Đang tải...</h2>
+      <p id="profile-username" style="margin:0; color:var(--gray-500); font-weight:600; font-size:15px;">@username</p>
+      <p id="profile-bio" style="margin:12px 0; color:var(--gray-700); font-size:15px; line-height:1.5; white-space:pre-wrap;">...</p>
+      
+      <div style="display:flex; gap:16px; margin-top:15px; flex-wrap:wrap; font-size:14px;">
+        <div style="color:var(--gray-600)"><span id="profile-post-count" style="font-weight:700; color:var(--gray-900)">0</span> bài đăng</div>
+        <div style="color:var(--gray-600)"><span id="profile-saved-count" style="font-weight:700; color:var(--gray-900)">0</span> đã lưu</div>
+        <div style="color:var(--gray-500);"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="vertical-align:text-bottom; margin-right:4px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg> Tham gia <span id="profile-joined">...</span></div>
+      </div>
+      
+      <button id="btn-edit-profile" class="btn-primary" style="margin-top:20px; width:auto; padding:8px 24px; display:none; border-radius:30px; font-size:14px; box-shadow:none; background:var(--gray-100); color:var(--gray-800);">✏️ Chỉnh sửa hồ sơ</button>
+      <button id="btn-delete-account" class="btn-primary" style="margin-top:12px; width:auto; padding:8px 24px; display:none; border-radius:30px; font-size:14px; box-shadow:none; background:#fee2e2; color:#dc2626; border:1.5px solid #fca5a5;">🗑️ Xóa tài khoản</button>
+    </div>
+
+    <div style="display:flex; border-bottom:1px solid var(--gray-200); padding:0 15px; gap:10px;">
+      <button class="profile-tab active" data-tab="posts" style="padding:12px 16px; font-weight:700; font-size:15px; color:var(--orange-600); border-bottom:3px solid var(--orange-500); background:none; border-top:none; border-left:none; border-right:none;">Bài đăng của tôi</button>
+      <button class="profile-tab" data-tab="saved" id="tab-saved-btn" style="padding:12px 16px; font-weight:700; font-size:15px; color:var(--gray-500); border-bottom:3px solid transparent; background:none; border-top:none; border-left:none; border-right:none;">Đã lưu</button>
+    </div>
+    
+    <div style="background:var(--gray-50); padding:20px; flex:1">
+      <div id="profile-grid" class="posts-grid" style="grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));"></div>
+      <div class="pagination-controls" id="profile-pagination-controls" style="margin-top:20px;"></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2025 <strong style="color:var(--orange-600)">Tổng hợp đề thi Toán vào 10</strong></p>
+  </footer>
+
+  <!-- EDIT PROFILE MODAL -->
+  <div id="edit-profile-overlay" class="modal-overlay" aria-modal="true">
+    <div class="modal-box">
+      <button class="modal-close" data-close="edit-profile-overlay" aria-label="Đóng">×</button>
+      <div class="modal-title">Sửa Hồ Sơ</div>
+      <div style="display:flex; gap:15px; margin-bottom:15px;">
+        <div class="form-group" style="flex:1">
+          <label>Thay Ảnh đại diện</label>
+          <input type="file" id="edit-avatar-input" accept="image/*" class="hidden-file">
+          <label for="edit-avatar-input" style="cursor:pointer; display:inline-block; margin-top:5px; padding:6px 12px; background:var(--orange-50); color:var(--orange-600); border-radius:6px; font-weight:600; font-size:13px; text-transform:none;">📷 Tải ảnh lên</label>
+          <div style="margin-top:10px;">
+            <img id="edit-avatar-preview" src="" style="width:70px;height:70px;object-fit:cover;border-radius:50%;display:none; border:2px solid var(--orange-500)">
+          </div>
+        </div>
+        <div class="form-group" style="flex:2">
+          <label>Thay Ảnh bìa</label>
+          <input type="file" id="edit-cover-input" accept="image/*" class="hidden-file">
+          <label for="edit-cover-input" style="cursor:pointer; display:inline-block; margin-top:5px; padding:6px 12px; background:var(--orange-50); color:var(--orange-600); border-radius:6px; font-weight:600; font-size:13px; text-transform:none;">🖼️ Tải ảnh lên</label>
+          <div style="margin-top:10px;">
+            <img id="edit-cover-preview" src="" style="width:100%;height:70px;object-fit:cover;border-radius:8px;display:none; border:1px solid #ccc;">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Biệt danh hiển thị</label>
+        <input type="text" id="edit-nickname" placeholder="Tên hiển thị">
+      </div>
+      <div class="form-group">
+        <label>Tiểu sử ngắn</label>
+        <textarea id="edit-bio" rows="3" placeholder="Giới thiệu bản thân..."></textarea>
+      </div>
+      <button id="btn-save-profile" class="btn-primary" style="margin-top:20px;">💾 Lưu thông tin</button>
+    </div>
+  </div>
+
+  <!-- AUTHENTICATION MODAL -->
+  <div id="login-modal" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-box" style="max-width:420px">
+      <button class="modal-close" data-close="login-modal" aria-label="Đóng">×</button>
+      <div class="modal-title">
+        <div class="modal-title-icon">🔐</div>
+        <span id="auth-modal-title">Đăng nhập</span>
+      </div>
+      <form id="login-form" autocomplete="off" novalidate>
+        <div style="margin-bottom:16px">
+          <label class="form-label" for="login-username">Tên đăng nhập</label>
+          <input id="login-username" type="text" class="form-input"
+                 placeholder="Nhập tên đăng nhập..." required autocomplete="username">
+        </div>
+        <div style="margin-bottom:16px">
+          <label class="form-label" for="login-password">Mật khẩu</label>
+          <input id="login-password" type="password" class="form-input"
+                 placeholder="Nhập mật khẩu..." required autocomplete="current-password">
+        </div>
+        <p id="login-error" class="form-error"></p>
+        <button type="submit" id="auth-submit-btn" class="btn-primary" style="margin-top:4px">Đăng nhập</button>
+      </form>
+      <p style="text-align:center;margin-top:16px;font-size:13px;color:var(--gray-400)">
+        <span id="auth-switch-text">Chưa có tài khoản?</span>
+        <a href="#" id="auth-toggle-btn" style="color:var(--orange-500);font-weight:700;text-decoration:none;margin-left:4px">Đăng ký ngay</a>
+      </p>
+    </div>
+  </div>
+
+  <div id="detail-overlay" class="detail-overlay" role="dialog" aria-modal="true"></div>
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Xem ảnh lớn">
+    <button class="lightbox-close" aria-label="Đóng">×</button>
+    <img id="lightbox-img" src="" alt="Ảnh phóng to">
+  </div>
+  <div id="toast" class="toast"></div>
+
+  <!-- DELETE ACCOUNT MODAL -->
+  <div id="delete-account-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Xóa tài khoản">
+    <div class="modal-box" style="max-width:400px">
+      <button class="modal-close" data-close="delete-account-modal" aria-label="Đóng">×</button>
+      <div class="modal-title">
+        <div class="modal-title-icon" style="background:linear-gradient(135deg,#ef4444,#b91c1c)">⚠️</div>
+        Xóa tài khoản?
+      </div>
+      <p style="font-size:14px;color:var(--gray-600);line-height:1.6;margin-bottom:16px">
+        Hành động này sẽ <strong>xóa vĩnh viễn</strong> tài khoản và toàn bộ bài đăng của bạn.<br>
+        Để xác nhận, hãy nhập chính xác <strong>tên tài khoản</strong> của bạn:
+      </p>
+      <input id="delete-confirm-input" type="text" class="form-input" placeholder="Nhập tên tài khoản" style="margin-bottom:8px">
+      <p id="delete-account-error" style="color:#dc2626;font-size:13px;min-height:18px;margin-bottom:8px"></p>
+      <div class="confirm-actions">
+        <button id="btn-cancel-delete-account" class="btn-cancel-confirm">Hủy</button>
+        <button id="btn-confirm-delete-account" class="btn-confirm-delete">🗑️ Xác nhận xóa</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="core.js"></script>
+  <script src="profile.js"></script>
+</body>
+</html>
